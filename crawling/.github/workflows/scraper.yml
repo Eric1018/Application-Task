@@ -1,0 +1,30 @@
+name: Run Scraper (Manual Only)
+
+on:
+  workflow_dispatch: # 只允許手動觸發
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scraper
+        run: python scraper.py
+
+      - name: Commit & Push Results
+        run: |
+          git config --global user.email "qwer6986270@gmail.com"
+          git config --global user.name "Eric1018"
+          git add scraped_data.db
+          git commit -m "Update scraped data" || echo "No changes to commit"
+          git push
