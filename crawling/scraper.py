@@ -165,9 +165,9 @@ async def main():
         print("開始執行主程式...")
         
         area_dict = {
-            "台北市": ([1], "https://business.591.com.tw/home/search/rent?&firstRow=", "&type=2"),
-            "新北市": ([3], "https://business.591.com.tw/home/search/rent?&firstRow=", "&type=2")
+            "台北市": (1, "https://business.591.com.tw/list?type=1&kind=6&region=1&page=", "")
         }
+
 
         all_results = []
         for region_name, (area_list, url_all, url_condition) in area_dict.items():
