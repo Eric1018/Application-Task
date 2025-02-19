@@ -1,3 +1,5 @@
+#爬591台北市房源
+
 import asyncio
 import codecs
 import re
@@ -165,8 +167,9 @@ async def main():
         print("開始執行主程式...")
         
         area_dict = {
-            "台北市": (1, "https://business.591.com.tw/list?type=1&kind=6&region=1&page=", "")
+            "台北市": ([1], "https://business.591.com.tw/list?type=1&kind=6&region=1&page=", "")
         }
+
 
 
         all_results = []
